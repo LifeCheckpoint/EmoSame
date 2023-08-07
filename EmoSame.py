@@ -1,14 +1,9 @@
 import torch
-import os
 import time
-import heapq
 import numpy as np
-import torch.nn as nn
-import torch.nn.functional as F
-import shutil as sh
 from networks.resnet_big import *
 from PIL import Image
-from torchvision import transforms, datasets
+from torchvision import transforms
 
 ### model end
 
