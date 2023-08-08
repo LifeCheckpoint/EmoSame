@@ -8,9 +8,13 @@ from torchvision import transforms
 ### model end
 
 class EmoSame:
-    def __init__(self, modelPath):
+    def __init__(self, modelPath, mode = "cpu"):
         try:
-            self.model = torch.load(modelPath, map_location = "cpu")
+            self.mode = mode
+            if mode == "cpu":
+                self.model = torch.load(modelPath, map_location = "cpu")
+            elif mode == "gpu":
+                self.model = torch.load(modelPath).to("cuda")
             self.model.eval()
 
             self.normalize = transforms.Compose([
@@ -25,7 +29,10 @@ class EmoSame:
         try:
             im = self.normalize(Image.open(img_path).convert("RGB")).unsqueeze(0)
             with torch.no_grad(): 
-                return np.array(self.model(im))
+                if self.mode == "cpu":
+                    return np.array(self.model(im))
+                elif self.mode == "gpu":
+                    return np.array(self.model(im.to("cuda")).cpu())
         except Exception as e:
             print("Failed to quantify: {}".format(str(e)))
             return np.array([])
@@ -34,7 +41,10 @@ class EmoSame:
         try:
             im = torch.stack([self.normalize(Image.open(img_path).convert("RGB")) for img_path in img_paths], dim = 0)
             with torch.no_grad(): 
-                return np.array(self.model(im))
+                if self.mode == "cpu":
+                    return np.array(self.model(im))
+                elif self.mode == "gpu":
+                    return np.array(self.model(im.to("cuda")).cpu())
         except Exception as e:
             print("Failed to quantify: {}".format(str(e)))
             return np.array([])
