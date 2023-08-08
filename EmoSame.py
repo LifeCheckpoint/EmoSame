@@ -47,7 +47,7 @@ class EmoSame:
         else:
             return 0
 
-modelPath = "D:/AdminFiles/Download/ckpt_epoch_50.pth"
+modelPath = "D:/AdminFiles/Download/ckpt_epoch_50 (1).pth"
 img1p = "D:/test/5275.jpg"
 img2p = "D:/test/5275666.jpg"
 img3p = "D:/test/3055.jpg"
@@ -61,7 +61,7 @@ im3 = emo.quantify(img3p)
 end = time.time()
 
 print(end - start)
-print(im1)
+print(len(im1[0]))
 print(emo.cosine_similarity(im1, im2))
 print(emo.cosine_similarity(im1, im3))
 print(emo.cosine_similarity(im2, im3))
