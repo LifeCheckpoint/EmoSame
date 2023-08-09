@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torchvision
 
 USE_PRETRAINED_MODEL = True
-PRETRAINED_MODEL = "101"
+PRETRAINED_MODEL = "50"
 
 ### model begin
 

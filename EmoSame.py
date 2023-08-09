@@ -58,9 +58,9 @@ class EmoSame:
             return 0
 
 modelPath = "D:/AdminFiles/Download/ckpt_epoch_50 (1).pth"
-img1p = "D:/test2/11.jpg"
-img2p = "D:/test2/10.jpg"
-img3p = "D:/test2/9.jpg"
+img1p = "D:/test2/0.jpg"
+img2p = "D:/test2/1.jpg"
+img3p = "D:/test2/11.jpg"
 
 emo = EmoSame(modelPath)
 
