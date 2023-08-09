@@ -211,6 +211,6 @@ class SupConResNet(nn.Module):
         if USE_PRETRAINED_MODEL == False:
             feat = F.normalize(self.head(feat), dim = 1)
         else:
-            feat = F.normalize(self.fc2(feat), dim = 1)
+            feat = F.normalize(self.fc2(F.relu(feat)), dim = 1)
 #       print(feat.shape)
         return feat
