@@ -57,10 +57,10 @@ class EmoSame:
         else:
             return 0
 
-modelPath = "D:/AdminFiles/Download/ckpt_epoch_100_810.pth"
-img1p = "D:/test2/0.jpg"
-img2p = "D:/test2/1.jpg"
-img3p = "D:/test2/11.jpg"
+modelPath = "D:/AdminFiles/Download/ckpt_epoch_100_rein.pth"
+img1p = "D:/test2/8.jpg"
+img2p = "D:/test2/9.jpg"
+img3p = "D:/test2/1.jpg"
 
 emo = EmoSame(modelPath)
 
